@@ -41,8 +41,40 @@ public class Heap {
             int right = left + 1;
             int lowest = index;
 
+            if (left < size && heaps.get(left).priority < heaps.get(index).priority) {
+                lowest = left;
+            }
+            if (right < size && heaps.get(right).priority < heaps.get(index).priority) {
+                lowest = right;
+            }
+            if (lowest != index) {
+                exchange(index, lowest);
+                index = lowest;
+            }
+
         }
     }
 
+    private Task extractMin() {
+        if (heaps.isEmpty()) {
+            return null;
+        }
 
+        Task min = heaps.get(0);
+        Task last = heaps.remove(heaps.size() - 1);
+
+        if (!heaps.isEmpty()) {
+            heaps.set(0, last);
+        }
+
+        return min;
+    }
+
+    public boolean isEmpty() {
+        return heaps.isEmpty();
+    }
+
+    public Task getMin() {
+        return heaps.isEmpty() ? null : heaps.get(0);
+    }
 }
