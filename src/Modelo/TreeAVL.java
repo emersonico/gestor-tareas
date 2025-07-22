@@ -126,8 +126,8 @@ public class TreeAVL {
     public void remove(Task task) {
         root = remove(root, task.id);
     }
-    public Task search(Task task) {
-        NodeAVL node = search(root, task.id);
+    public Task search(int id) {
+        NodeAVL node = search(root, id);
         return node == null ? null : node.task;
     }
 

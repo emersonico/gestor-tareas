@@ -55,7 +55,7 @@ public class Heap {
         }
     }
 
-    private Task extractMin() {
+    public Task extractMin() {
         if (heaps.isEmpty()) {
             return null;
         }
