@@ -41,15 +41,17 @@ public class Heap {
             int right = left + 1;
             int lowest = index;
 
-            if (left < size && heaps.get(left).priority < heaps.get(index).priority) {
+            if (left < size && heaps.get(left).priority < heaps.get(lowest).priority) {
                 lowest = left;
             }
-            if (right < size && heaps.get(right).priority < heaps.get(index).priority) {
+            if (right < size && heaps.get(right).priority < heaps.get(lowest).priority) {
                 lowest = right;
             }
             if (lowest != index) {
                 exchange(index, lowest);
                 index = lowest;
+            } else {
+                break;
             }
 
         }
@@ -65,6 +67,7 @@ public class Heap {
 
         if (!heaps.isEmpty()) {
             heaps.set(0, last);
+            heapifyDown(0);
         }
 
         return min;
