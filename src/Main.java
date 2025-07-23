@@ -1,17 +1,23 @@
-import java.util.*;
 import Modelo.Task;
-import Modelo.System;
+import Modelo.Sistema;
 
 public class Main {
     public static void main(String[] args) {
-        System sistema = new System();
+        Sistema sistema = new Sistema();
 
-        sistema.addTask(new Task(1,5, "Informe final"));
-        sistema.addTask(new Task(2,2, "Revisar codigo"));
-        sistema.addTask(new Task(3,7, "Presentación"));
-        sistema.addTask(new Task(4,1, "Reunión urgente"));
+
+
+        sistema.addTask(new Task(10, 1, "Corrección de errores"));
+        sistema.addTask(new Task(11, 2, "Entrega del reporte"));
+        sistema.addTask(new Task(12, 3, "Planificación semanal"));
+        sistema.addTask(new Task(13, 4, "Diseño del sistema"));
+        sistema.addTask(new Task(14, 5, "Actualizar documentación"));
 
         sistema.processTask();
         sistema.processTask();
+        sistema.processTask();
+        sistema.processTask();
+        sistema.processTask();
+
     }
 }
